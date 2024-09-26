@@ -1,4 +1,4 @@
-<?  
+<?php
 ob_start();
 
 session_start();
@@ -15,7 +15,7 @@ require_once("layout/header.php");
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-    <?
+    <?php
                 require_once("layout/sidebar.php");
         ?>
         <!-- Content Wrapper -->
@@ -24,12 +24,12 @@ require_once("layout/header.php");
             <!-- Main Content -->
             <div id="content">
 
-              <?
+              <?php
             require_once("layout/topbar.php");
               ?>
 
                 <!-- Begin Page Content -->
-    <?
+    <?php
     
        
 
@@ -190,7 +190,7 @@ else:
         </div>
 </div>
     
-<?
+<?php
  endif;
 
 ?>

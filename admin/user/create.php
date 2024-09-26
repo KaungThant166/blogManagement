@@ -1,4 +1,4 @@
-<?
+<?php
 $nameError = "";
 $emailError = "";
 $roleError = "";

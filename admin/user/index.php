@@ -1,4 +1,4 @@
-<?
+<?php
   $statement = $db->prepare(("SELECT * FROM users"));
   $statement->execute();
   $Users = $statement->fetchAll(PDO::FETCH_OBJ);

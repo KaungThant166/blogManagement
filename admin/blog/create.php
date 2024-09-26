@@ -1,4 +1,4 @@
-<?
+<?php
 //get category
 
 $categoryStmt = $db->prepare("SELECT * FROM categories");

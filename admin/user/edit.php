@@ -1,4 +1,4 @@
-<?
+<?php
 $userId =  $_GET['user_id'];
 
 $Statament = $db->prepare("SELECT * FROM users WHERE id = $userId");

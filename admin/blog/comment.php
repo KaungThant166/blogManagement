@@ -1,4 +1,4 @@
-<?
+<?php
 $blogId = $_GET['blog_id'];
 
 $Stmt = $db->prepare("SELECT comments.text,users.name,comments.created_at FROM comments INNER JOIN users ON comments.user_id = users.id WHERE comments.blog_id = $blogId ");
@@ -19,7 +19,7 @@ $comments = $Stmt->fetchAll(PDO::FETCH_OBJ);
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <? if(count($comments) >= 1):?>
+                    <?php if(count($comments) >= 1): ?>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 $updateId = $_GET['blog_id'];
 
@@ -92,7 +92,7 @@ $categortId = $_POST['category-id'];
                         <option value="">Select category</option>
                         <?foreach($categories as $category):?>
                         <option value="<?=$category->id?>"
-                        <?
+                        <?php
                             if ($category->id == $Blog->category_id){
                                 echo "selected";
                             };?>
@@ -100,19 +100,19 @@ $categortId = $_POST['category-id'];
                         >
                         
                         <?= $category->name?></option>
-                        <?endforeach;?>
+                        <?php endforeach;?>
                        </select>
-                       <span class="text-danger"><?echo $categoryError;?></span>
+                       <span class="text-danger"><?php echo $categoryError;?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Content</label>
-                            <textarea name="content" class="form-control <?if($$contentError !=""):?>is-invalid<?endif;?>" cols="30" rows="10"><? echo $Blog->content;?></textarea>
+                            <textarea name="content" class="form-control <?php if($$contentError !=""):?>is-invalid<?php endif;?>" cols="30" rows="10"><?php  echo $Blog->content;?></textarea>
                         <span class="text-danger"><?echo $contentError;?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Image</label>
-                        <input type="file" class="form-control <?if($imageError !=""):?>is-invalid<?endif;?>" name="image">
-                        <img src="../assets/blog-image/<?echo $Blog->image?>" alt="" style="width: 120px;" class="m-2">
+                        <input type="file" class="form-control <?php if($imageError !=""):?>is-invalid<?php endif;?>" name="image">
+                        <img src="../assets/blog-image/<?php htmlspecialchars($Blog->image) ?>" alt="" style="width: 120px;" class="m-2">
                         <span class="text-danger"><?echo $imageError;?></span>
                     </div>
                     <button class="btn btn-primary" name="blogUpdate-btn">Submit</button>

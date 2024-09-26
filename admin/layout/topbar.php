@@ -54,7 +54,7 @@
 
 </nav>
 
-<?
+<?php
 if(isset($_POST['signout_btn'])){
   session_destroy();
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 if(isset($_POST['signUpBtn'])){
   $name = $_POST['name'];
@@ -50,7 +50,7 @@ if(isset($_POST['signIn_btn'])){
         {location.href='index.php'}
         )
       </script>
-       <?
+       <?php
       }
 }
 

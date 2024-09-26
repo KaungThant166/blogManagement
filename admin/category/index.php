@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 $selectCategoryStatement = $db->prepare("SELECT * FROM categories");
@@ -41,7 +41,7 @@ if(isset($_POST['delete-btn'])){
                             </tr>
                         </thead>
                         <tbody>
-                    <?
+                    <?php 
                      foreach($categories as $index => $category):
                         $no = $index +1;
                     ?>
@@ -59,7 +59,7 @@ if(isset($_POST['delete-btn'])){
                                 </td>
                             </tr>
 
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                         </tbody>
 
 
