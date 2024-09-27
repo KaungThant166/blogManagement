@@ -19,7 +19,7 @@
     if(isset($_GET['page'])):
     ?>
      class="nav-item "
-    <?
+    <?php
     else:
     ?>
      class="nav-item active"

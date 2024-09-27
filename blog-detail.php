@@ -43,15 +43,15 @@ if(isset($_POST['createCommentBtn'])){
                     <h3 data-aos="fade-right" data-aos-duration="1000">Blog Detail</h3>
                     <div class="heading-line" data-aos="fade-left" data-aos-duration="1000"></div>
                     <div class="card my-3" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="card-body p-0">
+                    <div class="card-body p-0">
                             <div class="img-wrapper">
-                                <img src="assets/blog-image/<?echo $blog->image?>" class="img-fluid" alt="">
+                                <img src="assets/blog-image/<?= $blog->image ?>" class="img-fluid" alt="">
                             </div>
                             <div class="content p-3">
-                                <h5 class="fw-semibold"><?echo $blog->title;?></h5>
-                                <div class="mb-3"><?echo $blog->created_at;?> | by <?echo $blog->name;?></div>
+                                <h5 class="fw-semibold"><?= htmlspecialchars($blog->title); ?></h5>
+                                <div class="mb-3"><?= htmlspecialchars($blog->created_at); ?> | by <?= htmlspecialchars($blog->name); ?></div>
                                 <p>
-                                <?echo $blog->content;?> 
+                                <?= nl2br(htmlspecialchars($blog->content)); ?>
                                 </p>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ if(isset($_POST['createCommentBtn'])){
                     <!-- comment section -->
                     <div class="comment">
         
-                <?
+                <?php
                 if(isset($_SESSION['user'])):
                 ?>
                 <h5 data-aos="fade-right" data-aos-duration="1000">Leave a Comment</h5>
@@ -70,12 +70,12 @@ if(isset($_POST['createCommentBtn'])){
                         <button class="btn" type="submit" name="createCommentBtn">Submit</button>
                     </form>
 
-                <?
+                <?php
                 else:
                 ?>
                     <a  class="btn btn-primary" href="#signIn" data-bs-toggle="offcanvas" aria-controls="staticBackdrop">Sign in to comment</a>
-                <? endif;?>
-                <?foreach($comments as $comment):?>
+                <?php endif;?>
+                <?php foreach($comments as $comment):?>
                         <div class="card card-body my-3" data-aos="fade-right" data-aos-duration="1000">
                             <h6><?= $comment->name?></h6>
                            <?= $comment->text?>
@@ -83,13 +83,15 @@ if(isset($_POST['createCommentBtn'])){
                                 <span class="float-end"><?= $comment->created_at?></span>
                             </div>
                         </div>
-                        <?endforeach;?>
+                        <?php  endforeach; ?>
                
                     </div>
                 </div>
-                <?require_once("layout/right-side.php");?>
+                <?php require_once("layout/right-side.php"); ?>
             </div>
         </div>
     </div>
 
-   <?  require_once("layout/footer.php");?>
+   <?php  require_once("layout/footer.php");?>
+
+ 

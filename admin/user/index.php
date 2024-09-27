@@ -3,7 +3,7 @@
   $statement->execute();
   $Users = $statement->fetchAll(PDO::FETCH_OBJ);
 
-//   print_r($Users);
+
 if(isset($_POST['delete-btn'])){
     echo $userId = $_POST['user_id'];
       $deleteStament = $db->prepare("DELETE FROM users WHERE id=$userId  ");
@@ -41,27 +41,27 @@ if(isset($_POST['delete-btn'])){
                             </tr>
                         </thead>
                         <tbody>
-                    <?
+                    <?php
                     foreach($Users as $index => $user):
                         $no = $index +1;
                     ?>
                             <tr>
-                                <td><?echo $no; ?></td>
-                                <td><?echo $user->name; ?></td>
-                                <td><?echo $user->email; ?></td>
-                                <td><?echo $user->role; ?></td>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $user->name; ?></td>
+                                <td><?php echo $user->email; ?></td>
+                                <td><?php echo $user->role; ?></td>
                                 <td>
                                 <form action="" method="POST">
-                                    <a href="index.php?page=users-edit&user_id=<?
+                                    <a href="index.php?page=users-edit&user_id=<?php
                                     echo $user->id;
                                     ?>" class="btn btn-primary">Edit</a>
-                                    <input type="hidden" value="<? echo $user->id?>" name="user_id">
+                                    <input type="hidden" value="<?php echo $user->id?>" name="user_id">
                                     <button class="btn btn-danger" name="delete-btn" onclick="return confirm('Are you sure to delete')">Delete</button>
                                 </form>
                                 </td>
                             </tr>
 
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                         </tbody>
 
 

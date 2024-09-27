@@ -83,14 +83,14 @@ $categortId = $_POST['category-id'];
                 <form  method="POST" enctype="multipart/form-data">
                     <div class="mb-2">
                         <label for="">Title</label>
-                        <input type="text" class="form-control <?if($titleError !=""):?>is-invalid<?endif;?>" name="title" value="<? echo $Blog->title;?>">
+                        <input type="text" class="form-control <?php if($titleError !=""):?>is-invalid<?php endif;?>" name="title" value="<?php echo $Blog->title;?>">
                         <span class="text-danger"><?echo $titleError;?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Category</label>
                        <select name="category-id" id="" class="form-control">
                         <option value="">Select category</option>
-                        <?foreach($categories as $category):?>
+                        <?php foreach($categories as $category):?>
                         <option value="<?=$category->id?>"
                         <?php
                             if ($category->id == $Blog->category_id){
@@ -100,7 +100,7 @@ $categortId = $_POST['category-id'];
                         >
                         
                         <?= $category->name?></option>
-                        <?php endforeach;?>
+                        <?php  endforeach;?>
                        </select>
                        <span class="text-danger"><?php echo $categoryError;?></span>
                     </div>
