@@ -1,9 +1,9 @@
-<?
+<?php
 $userId = $_SESSION['user']->id;
 $stmt = $db->prepare("SELECT name,email FROM users WHERE id=$userId ");
 $stmt->execute();
 $user = $stmt->fetchObject();
-print_r($user);
+
 
 ?>
 

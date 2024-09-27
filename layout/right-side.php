@@ -1,4 +1,4 @@
-<?
+<?php
 $statement = $db->prepare("SELECT * FROM categories");
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -16,20 +16,22 @@ $blogs = $blogStatement->fetchAll(PDO::FETCH_OBJ);
     <h5 data-aos="fade-left" data-aos-duration="1000">Blogs Categories</h5>
     <div class="heading-line" data-aos="fade-right" data-aos-duration="1000"></div>
     <ul class="mb-5" data-aos="zoom-in" data-aos-duration="1000">
-        <?foreach($categories as $category):?>
-        <li class="my-2"><a href="index.php?category_id=<?echo $category->id?>"><?echo $category->name?></a></li>
-        <? endforeach;?>
+    <?php foreach ($categories as $category): ?>
+            <li class="my-2">
+                <a href="index.php?category_id=<?= htmlspecialchars($category->id) ?>"><?= htmlspecialchars($category->name) ?></a>
+            </li>
+        <?php endforeach; ?>
     </ul>
     <h5 data-aos="fade-left" data-aos-duration="1000">Blogs You May Like</h5>
     <div class="heading-line" data-aos="fade-right" data-aos-duration="1000"></div>
-    <?foreach($blogs as $blog):?>
-    <a href="blog-detail.php?blog_id=<?echo $blog->id?>">
-        <div class="recent-blog border rounded p-2 my-1 d-flex justify-content-between align-items-center" data-aos="zoom-in" data-aos-duration="1000">
-            <img src="assets/blog-image/<?echo $blog->image?>" alt="">
-            <div class="ms-2">
-               <?echo substr($blog->content, 0,50)?>...
+    <?php foreach ($blogs as $blog): ?>
+        <a href="blog-detail.php?blog_id=<?= htmlspecialchars($blog->id) ?>">
+            <div class="recent-blog border rounded p-2 my-1 d-flex justify-content-between align-items-center" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="assets/blog-image/<?= htmlspecialchars($blog->image) ?>" alt="">
+                <div class="ms-2">
+                    <?= htmlspecialchars(substr($blog->content, 0, 50)) ?>...
+                </div>
             </div>
-        </div>
-    </a>
-    <?endforeach?>
+        </a>
+    <?php endforeach; ?>
 </div>

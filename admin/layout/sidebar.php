@@ -15,15 +15,15 @@
 
 <!-- Nav Item - Dashboard -->
 <li 
-<?
+<?php
     if(isset($_GET['page'])):
     ?>
      class="nav-item "
-    <?
+    <?php
     else:
     ?>
      class="nav-item active"
-    <?
+    <?php
     endif;
     ?>
 
@@ -59,7 +59,7 @@
 
 <!-- Nav Item - Charts -->
 <li 
-<?
+<?php
 if(isset($_GET['page'])){
     if($_GET['page'] === 'categories' || $_GET['page'] === 'categories-create'|| $_GET['page'] === 'categories-edit'){
         echo " class='nav-item active'";
@@ -77,7 +77,7 @@ if(isset($_GET['page'])){
 </li>
 <!-- article -->
 <li 
-<?
+<?php
 if(isset($_GET['page'])){
     if($_GET['page'] === 'blogs' || $_GET['page'] === 'blogs-create'|| $_GET['page'] === 'blogs-edit'){
         echo " class='nav-item active'";
@@ -97,7 +97,7 @@ if(isset($_GET['page'])){
 </li>
 
 <li 
-<?
+<?php
     if(isset($_GET['page'])){
         if($_GET['page'] === 'users' || $_GET['page'] === 'users-create'|| $_GET['page'] === 'users-edit'){
             echo " class='nav-item active'";

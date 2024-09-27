@@ -1,4 +1,4 @@
-<?
+<?php
 $userId =  $_GET['user_id'];
 
 $Statament = $db->prepare("SELECT * FROM users WHERE id = $userId");
@@ -71,44 +71,44 @@ if(isset($_POST['userUpdate-btn'])){
                 <form action="" method="POST">
                     <div class="mb-2">
                         <label for="">Name</label>
-                        <input type="text" class="form-control <?if($nameError !=""):?>is-invalid<?endif;?>" name="name" value="<?
+                        <input type="text" class="form-control <?php if($nameError !=""):?>is-invalid<?php endif; ?>" name="name" value="<?php
                         echo $result->name
                         ?>">
-                        <span class="text-danger"><?echo $nameError;?></span>
+                        <span class="text-danger"><?php echo $nameError; ?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Email</label>
-                        <input type="text" class="form-control <?if($emailError !=""):?>is-invalid<?endif;?>" name="email" value="<?
+                        <input type="text" class="form-control <?php if($emailError !=""): ?>is-invalid<?php endif; ?>" name="email" value="<?php
                         echo $result->email
                         ?>">
-                        <span class="text-danger"><?echo $emailError;?></span>
+                        <span class="text-danger"><?php echo $emailError; ?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Role</label>
                         <select name="role" id="" class="form-control">
                             <option value="admin"
-                            <?
+                            <?php
                             if($result->role === 'admin'):
                             ?>
                             selected
-                            <? endif;?>
+                            <?php endif; ?>
                             
                             >Admin</option>
                             <option value="user"
-                            <?
+                            <?php
                                 if($result->role === 'user'):
                                 ?>
                                 selected
-                                <? endif;?>
+                                <?php endif;?>
                             
                             >User</option>
                         </select>
-                        <span class="text-danger"><?echo $roleError;?></span>
+                        <span class="text-danger"><?php echo $roleError; ?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Password</label>
                         <input type="checkbox" onclick="clickPass()" id="check">
-                        <input type="password" class="form-control <?if($passError !=""):?>is-invalid<?endif;?>" name="password" style="display: none;" id="passInputBox" placeholder="Enter new password">
+                        <input type="password" class="form-control <?php if($passError !=""): ?>is-invalid<?php endif; ?>" name="password" style="display: none;" id="passInputBox" placeholder="Enter new password">
                         <span class="text-danger"><?echo $passError;?></span>
                     </div>
                     <button class="btn btn-primary" name="userUpdate-btn">Update</button>

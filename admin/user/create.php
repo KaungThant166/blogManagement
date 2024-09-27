@@ -1,4 +1,4 @@
-<?
+<?php
 $nameError = "";
 $emailError = "";
 $roleError = "";
@@ -52,13 +52,13 @@ if(!empty($name) && !empty($email) && !empty($role) && !empty($pass)){
                 <form action="" method="POST">
                     <div class="mb-2">
                         <label for="">Name</label>
-                        <input type="text" class="form-control <?if($nameError !=""):?>is-invalid<?endif;?>" name="name">
-                        <span class="text-danger"><?echo $nameError;?></span>
+                        <input type="text" class="form-control <?php if($nameError !=""): ?>is-invalid<?php endif; ?>" name="name">
+                        <span class="text-danger"><?php echo $nameError; ?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Email</label>
-                        <input type="text" class="form-control <?if($emailError !=""):?>is-invalid<?endif;?>" name="email">
-                        <span class="text-danger"><?echo $emailError;?></span>
+                        <input type="text" class="form-control <?php if($emailError !=""): ?>is-invalid<?php endif; ?>" name="email">
+                        <span class="text-danger"><?php echo $emailError; ?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Role</label>
@@ -66,12 +66,12 @@ if(!empty($name) && !empty($email) && !empty($role) && !empty($pass)){
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
                         </select>
-                        <span class="text-danger"><?echo $roleError;?></span>
+                        <span class="text-danger"><?php echo $roleError; ?></span>
                     </div>
                     <div class="mb-2">
                         <label for="">Password</label>
-                        <input type="text" class="form-control <?if($passError !=""):?>is-invalid<?endif;?>" name="password">
-                        <span class="text-danger"><?echo $passError;?></span>
+                        <input type="text" class="form-control <?php if($passError !=""): ?>is-invalid<?php endif; ?>" name="password">
+                        <span class="text-danger"><?php echo $passError; ?></span>
                     </div>
                     <button class="btn btn-primary" name="userCreate-btn">Submit</button>
                 </form>
